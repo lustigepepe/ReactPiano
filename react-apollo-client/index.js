@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import { ApolloProvider } from "react-apollo";
 
-const App = () => (
+const PianoApp = () => (
   <ApolloProvider client={client}>
     <div>
       <h2>My first Apollo app 🚀</h2>
@@ -11,4 +11,4 @@ const App = () => (
   </ApolloProvider>
 );
 
-render(<App />, document.getElementById("root"));
+render(<PianoApp />, document.getElementById("root"));

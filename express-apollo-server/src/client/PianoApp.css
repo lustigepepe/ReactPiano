@@ -28,7 +28,6 @@ ul {
 }
 
 .square {
-    position: static;
     height: 16em;
     width: 4em;
     float: left;
@@ -43,7 +42,7 @@ ul {
 
 
 .thinSquare {
-    position: fixed;
+    position: absolute;
     z-index: 2;
     height: 8em;
     width: 2em;
@@ -55,14 +54,6 @@ ul {
     background: linear-gradient(45deg, #222 0%, #555 100%);
     transition-duration: 2s
 }
-
-
-li { 
-    margin:0; padding:0; list-style:none; position:relative; float:left;
-   }
-
-.a,.g,.f,.d,.c { margin:0 0 0 -1em;  }
-
 
 .square:active {
     background: linear-gradient(45deg, #dc143c 0%, #8b0000 100%);
@@ -80,6 +71,10 @@ li {
     outline: none;
 }
 
+.thinSquare:focus {
+    outline: none;
+}
+
 .kbd-navigation .square:focus {
     background: #ddd;
 }
@@ -92,9 +87,6 @@ li {
 .game-info {
     margin-left: 20px;
 }
-
-
-
 
 .App {
     text-align: center;
