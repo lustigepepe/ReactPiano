@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Apollo server for the react piano",
   "scripts": {
+    "startAll": "node build/server/bundle.js",
+    "buildAll": "rm -rf build && NODE_ENV=production webpack --progress --config webpack.config.server.js && NODE_ENV=production webpack --progress --config webpack.config.client.js",
     "build": "webpack --mode production",
     "start": "nodemon src/index.js",
     "dev": "webpack --mode development"
@@ -18,12 +20,14 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.0.1",
     "babel-loader": "7",
+    "babel-plugin-css-modules-transform": "^1.6.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-native": "^4.0.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "css-loader": "^0.28.7",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",

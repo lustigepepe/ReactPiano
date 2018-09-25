@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import gql from 'graphql-tag';
+import gql from 'graphql-tag';
 import { fetchData } from "./store";
 
+import 'ignore-styles'
 import logo from './logo.svg';
 import './PianoApp.css';
 import { Switch, Route } from "react-router-dom";
