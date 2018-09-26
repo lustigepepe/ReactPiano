@@ -7,8 +7,7 @@
     "buildAll": "rm -rf build && webpack --mode=development --progress --config webpack.config.server.js && webpack --progress --mode=development --config webpack.config.client.js",
     "build": "webpack --mode production",
     "start": "nodemon src/index.js",
-    "dev": "webpack --mode development",
-    "devAll": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --config webpack.config.client.js\""
+    "startAll": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --config webpack.config.client.js\""
   },
   "author": "",
   "license": "ISC",
