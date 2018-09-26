@@ -8,6 +8,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import Helmet from "react-helmet";
 import routes from "./client/routes";
 import Home from "./client/Home"; 
+import Layout from "./client/Layout"; 
 import PianoApp from "./client/PianoApp";
 import createStore, { initializeSession } from "./client/store";
 
@@ -25,17 +26,14 @@ expressServer.use((req, res)=>{
             .map( comp => store.dispatch( comp.serverFetch( ) ) ); // dispatch data requirement
 
     Promise.all( dataRequirements ).then( ( ) => {
-      const reactDom = renderToString(
-        <ReduxProvider store={store}>
-          <StaticRouter context={ context } location={ req.url }>
-              <Home/>
-            </StaticRouter>
-        </ReduxProvider>
-      );
-
-        // res.writeHead( 200, { "Content-Type": "text/html" } );
-        // res.end( htmlTemplate( reactDom, reduxState, helmetData ) );
-
+		const reactDom = renderToString(
+			<ReduxProvider store={store}>
+			  <StaticRouter context={ context } location={ req.url }>
+			      <PianoApp/>
+			    </StaticRouter>
+			</ReduxProvider>
+		);
+		console.log("Within renderF"+ req.url);
         const helmetData = Helmet.renderStatic( );
         const preloadedState = store.getState();    // Send the rendered page back to the client
         res.writeHead( 200, { "Content-Type": "text/html" } );

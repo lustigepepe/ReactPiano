@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { ApolloProvider, Query } from 'react-apollo';
 import gql from "graphql-tag";
 import ApolloClient from "apollo-boost";
+import Layout from "./Layout"; 
 import { BrowserRouter as Router } from "react-router-dom";
 
 

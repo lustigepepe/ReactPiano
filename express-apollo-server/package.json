@@ -4,10 +4,11 @@
   "description": "Apollo server for the react piano",
   "scripts": {
     "startAll": "node build/server/bundle.js",
-    "buildAll": "rm -rf build && NODE_ENV=production webpack --progress --config webpack.config.server.js && NODE_ENV=production webpack --progress --config webpack.config.client.js",
+    "buildAll": "rm -rf build && webpack --mode=development --progress --config webpack.config.server.js && webpack --progress --mode=development --config webpack.config.client.js",
     "build": "webpack --mode production",
     "start": "nodemon src/index.js",
-    "dev": "webpack --mode development"
+    "dev": "webpack --mode development",
+    "devAll": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --config webpack.config.client.js\""
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "babel-preset-react-native": "^4.0.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
+    "concurrently": "^4.0.1",
     "css-loader": "^0.28.7",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "express": "^4.16.3",
@@ -47,8 +49,8 @@
     "redux-thunk": "^2.3.0",
     "style-loader": "^0.19.0",
     "styled-components": "^2.2.4",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
     "webpack-node-externals": "^1.7.2"
   }
 }

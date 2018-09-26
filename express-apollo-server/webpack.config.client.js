@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const DEV = process.env.NODE_ENV !== 'production';
 
@@ -11,29 +12,8 @@ module.exports = {
     path: path.resolve(__dirname, 'build/client'),
     filename: 'bundle.js',
     publicPath: '/',
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.css/,
-        loader: 'style-loader!css-loader',
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules)/,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        loader: 'graphql-tag/loader',
-      },
-    ],
-  },
+  },  
+  externals: nodeExternals(),
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -56,4 +36,33 @@ module.exports = {
       }),
     DEV && new webpack.optimize.AggressiveMergingPlugin(),
   ].filter(Boolean),
+  module: {
+    rules: [
+      {
+        test: /\.css/,
+        loader: 'style-loader!css-loader',
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /(node_modules)/,
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'react-svg-loader'
+        }]
+      },
+
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+      },
+    ],
+  }
 };
