@@ -1,17 +1,18 @@
 {
-  "plugins": ["react-native-web/babel", "transform-class-properties"],
+  "plugins": ["react-native-web/babel", "css-modules-transform", "transform-class-properties"],
   "presets": [
     "stage-2",
     "react-native",
     [
       "env",
       {
-        "targets": {
+        "targets":
+        {
           "node": "current",
           "browsers": ["last 2 versions"]
         }
       }
     ]
-  ]
+  ],
 }
 

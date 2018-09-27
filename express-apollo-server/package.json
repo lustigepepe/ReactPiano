@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "Apollo server for the react piano",
   "scripts": {
-    "startAll": "node build/server/bundle.js",
+    "startAll": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --config webpack.config.client.js\"",
     "buildAll": "rm -rf build && webpack --mode=development --progress --config webpack.config.server.js && webpack --progress --mode=development --config webpack.config.client.js",
     "build": "webpack --mode production",
-    "start": "nodemon src/index.js",
-    "startAll": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --config webpack.config.client.js\""
+    "start": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-2": "^7.0.0",
     "apollo-boost": "^0.1.15",
     "apollo-client": "^2.4.2",
     "apollo-server": "^2.0.8",

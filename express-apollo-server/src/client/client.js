@@ -16,7 +16,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import './client.css';
 
 
-
 const client = new ApolloClient({
   uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
 });

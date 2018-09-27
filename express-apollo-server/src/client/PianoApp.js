@@ -5,7 +5,7 @@ import { fetchData } from "./store";
 
 // import 'ignore-styles';
 // import logo from './logo.svg';
-// import './PianoApp.css';
+import './PianoApp.css';
 import { Switch, Route } from "react-router-dom";
 import routes from "./routes";
 

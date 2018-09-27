@@ -10,6 +10,8 @@ import routes from "./client/routes";
 import Home from "./client/Home"; 
 import Layout from "./client/Layout"; 
 import PianoApp from "./client/PianoApp";
+// import './client/PianoApp.css';
+
 import createStore, { initializeSession } from "./client/store";
 
 expressServer.use( express.static( path.resolve( __dirname, "../dist" ) ) );
